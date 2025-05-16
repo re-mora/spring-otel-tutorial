@@ -1,19 +1,15 @@
 Spring Open Telemetry Tutorial
 ===
 
-# 개요
-
-> Spring Boot 애플리케이션의 상태를 관찰하고 문제를 빠르게 파악하기 위해 **OpenTelemetry 기반의 모니터링 환경**을 구성해요
->
 > OpenTelemetry는 애플리케이션에서 발생하는 **Trace**, **Metric**, **Log** 데이터를 한 번에 모아서 관리할 수 있도록 도와주는 **CNCF 표준 Observability
-framework**예요
+framework**예요.
 > 수집한 데이터를 Jaeger, Zipkin, Tempo, Prometheus, Grafana 등 다양한 도구로 전달할 수 있고 **원하는 방식으로 시각화하고 분석할 수 있는 유연함**을 제공해요
 >
 > 또한 특정 클라우드나 기술에 종속되지 않아, **다양한 운영 환경에서도 자유롭게 적용**할 수 있어요
 
 ---
 
-# OpenTelemetry 기반 모니터링의 장점
+## OpenTelemetry 기반 모니터링의 장점
 
 1. **표준화된 API와 OTLP 프로토콜**을 통해 다양한 도구와 손쉽게 연동할 수 있어요
 2. **Trace, Metric, Log를 하나의 추적 ID 기반으로 연계**하여 통합 분석이 가능해요
@@ -21,14 +17,16 @@ framework**예요
 
 ---
 
-## 실습 목표
+# 실습 목표
 
-> - Spring Boot 기반의 상품, 주문 micro service의 흐름을 관찰할 수 있는 Open Telemetry 기반의 환경을 구성해요
-> - Trace, Metrics, Log 등의 데이터를 수집하고, 수집된 데이터를 시각화하여 분석할 수 있는 환경을 구성해요
+> - Spring Boot 애플리케이션의 상태를 관찰하고 문제를 빠르게 파악하기 위해 **OpenTelemetry 기반의 모니터링 환경**을 구성해요
+> - 상품/주문 micro service, MySQL, Redis, Kafka의 요청 흐름을 관찰할 수 있는 환경을 구성해요
+> - Zipkin, Jaeger, Prometheus, Tempo, Loki를 활용해 Trace, Metrics, Log 등의 데이터를 수집할 수 있는 환경을 구성해요
+> - Grafana를 이용해 수집된 데이터를 시각화하여 분석할 수 있는 환경을 구성해요
 
-![otel-architecture](https://github.com/user-attachments/assets/1abd6839-6f05-40d5-9980-18466fb627a0)
+![diagram](docs/diagram/diagram.svg)
 
-# 실습 구성 요소
+## 실습 구성 요소
 
 다음과 같은 구성 요소들을 사용해서 전체 모니터링 파이프라인을 구성해보려고 해요
 
@@ -45,10 +43,12 @@ framework**예요
 > - 각 구성 요소를 연동하여 MSA 환경에서도 서비스 간 호출 흐름, 성능 병목, 오류 로그 등을 빠르게 확인하고 파악할 수 있어요
 > - 이 구조를 통해 **애플리케이션의 상태와 동작을 통합적으로 분석**할 수 있는 환경을 구성할 수 있어요
 
+---
+
 # TODO
 
 - [ ] 실습 프로젝트 환경 구성
-  - [ ] [OpenTelemetry Spring Boot Starter 의존성 추가](https://opentelemetry.io/docs/zero-code/java/spring-boot-starter/getting-started/)
+    - [ ] [OpenTelemetry Spring Boot Starter 의존성 추가](https://opentelemetry.io/docs/zero-code/java/spring-boot-starter/getting-started/)
 - [ ] Trace Metrics, Log 등의 데이터 수집 환경 구성을 위한 otel-collector 구성
 - [ ] ~~분산 추적을 위한 Jaeger 구성~~
 - [ ] ~~분산 환경의 흐름 시각화를 위한 Zipkin 구성~~
@@ -57,3 +57,9 @@ framework**예요
 - [ ] Prometheus + Grafana를 이용한 시스템 모니터링 환경 구성
 - [ ] Prometheus + Grafana를 이용한 분산 환경 모니터링 환경 구성
 - [ ] 성능 테스트 기반 시스템 지표 확인
+
+---
+
+# References
+
+- [Open Telemetry Official Docs](https://opentelemetry.io/docs/)
